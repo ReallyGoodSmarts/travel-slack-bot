@@ -12,7 +12,7 @@ I run it once a day with a [cron job](https://github.com/ReallyGoodSmarts/travel
 
 ## Things it Needs
 
-### Your TripIt iCal URL
+### Your TripIt Calendar URL
 
 Get it from your account settings, here:
 
@@ -28,10 +28,10 @@ I store the TripIt and Slack URLs outside my Git tree so I don't accidentally ma
 
 ### Three node.js modules
 
-This program uses `ical` `request` and `moment` npm libraries. Install them using [npm](https://www.npmjs.com/).
+This program uses `ical` `request` and `moment` npm libraries. Install them from the package.json file using [npm](https://www.npmjs.com/).
 
 ```
-npm install ical request moment 
+npm install
 ```
 
 ## Make it Go
