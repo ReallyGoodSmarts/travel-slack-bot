@@ -2,11 +2,13 @@
 
 This little program watches your TripIt account and posts a note into Slack whenever you are on the road.
 
+![Example Post](https://github.com/ReallyGoodSmarts/travel-slack-bot/blob/master/images/ExamplePost.png)
+
 ## How it Works
 
 The program looks for "trips" in your TripIt web calendar feed, which are separate from the hotel and plane reservations. It uses the dates and the location from those trips. You can edit those trip details inside TripIt.
 
-I run it once a day with a [cron job](https://github.com/ReallyGoodSmarts/travel-slack-bot#make-it-go). If a trip is in progress when it runs, the script posts the trip's location and the start/end dates into the specified channel (I'm using #fyi, but you can change it in `index.js`).
+I run it once a day with a [cron job](https://github.com/ReallyGoodSmarts/travel-slack-bot#make-it-go). If a trip is in progress when it runs, the script posts the trip's location and the start/end dates into the specified channel (I'm using the #fyi channel, but you can change it in `index.js`).
 
 ## Things it Needs
 
