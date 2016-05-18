@@ -1,7 +1,7 @@
 var ical = require('ical');
 var moment = require('moment');
 var request = require('request');
-var travelBotKeys = require ('../bothouse/api_keys/travel_bot_keys.js');
+var travelBotKeys = require ('../api_keys/travel_bot_keys.js');
 
 ical.fromURL(travelBotKeys.ICAL_URL, {}, function(err, data){
   for (var k in data){
