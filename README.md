@@ -1,4 +1,4 @@
-# Linking TripIt & Slack For Basic Info
+# Linking TripIt & Slack
 
 This little program watches someone's TripIt account and posts a note into Slack whenever they're on the road.
 
