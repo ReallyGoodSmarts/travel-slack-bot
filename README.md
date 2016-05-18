@@ -12,13 +12,13 @@ The program looks for "trips" in your TripIt web calendar feed, which are separa
 
 Get it from your account settings, here:
 
-[image]
+![screen shot 2](https://github.com/ReallyGoodSmarts/travel-slack-bot/blob/master/images/ScreenShot38.png)
 
 ### A Slack Incoming Webhook URL
 
 Get it from Browse Apps > Custom Integrations > Incoming WebHooks > Configurations.
 
-[image]
+![screen shot 1](https://github.com/ReallyGoodSmarts/travel-slack-bot/blob/master/images/ScreenShot17.png)
 
 ### A couple of node.js modules
 
