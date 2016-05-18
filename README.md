@@ -30,6 +30,17 @@ npm install ical request moment
 
 ## Usage
 
-I set this up to be run by a cron job once a day.
+I set this up to be run by a cron job once a day. So I edited my server's crontab with:
 
+```
+crontab -e
+```
+
+... and added this line to run it every morning at 9 a.m.:
+
+```
+0 9 * * * /home/ubuntu/bothouse/travel-slack-bot/cron.sh > /home/ubuntu/bothouse/travel-slack-bot/cron.log
+```
+
+(You'll need to change the path to wherever you keep these files AND also change the path in the [`cron.js`](https://github.com/ReallyGoodSmarts/travel-slack-bot/blob/master/cron.sh) file.)
 
