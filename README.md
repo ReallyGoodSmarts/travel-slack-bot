@@ -46,5 +46,13 @@ crontab -e
 0 9 * * * /home/ubuntu/bothouse/travel-slack-bot/cron.sh > /home/ubuntu/bothouse/travel-slack-bot/cron.log
 ```
 
-(You'll need to change the path to wherever you keep these files AND also change the path in the [`cron.js`](https://github.com/ReallyGoodSmarts/travel-slack-bot/blob/master/cron.sh) file.)
+I keep my bots in /home/ubuntu/bothouse/ ... You'll need to change the path to wherever you keep these files AND also change the path in the [`cron.js`](https://github.com/ReallyGoodSmarts/travel-slack-bot/blob/master/cron.sh) file.
+
+To actually make it work, you very likely need to give permissions for cron to run `cron.js`. Do that like this:
+
+```
+chmod u+x cron.sh
+```
+
+
 
