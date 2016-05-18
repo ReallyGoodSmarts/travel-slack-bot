@@ -1,12 +1,14 @@
 # Linking TripIt & Slack
 
-This little program watches someone's TripIt account and posts a note into Slack whenever they're on the road.
+This little program watches your TripIt account and posts a note into Slack whenever you are on the road.
 
-## How it works
+## How it Works
 
-The program looks for "trips" in your TripIt web calendar feed, which are separate from the hotel and plane reservations. It uses the dates and the location from those trips. You can edit those details inside TripIt. If today is during a trip, it posts that information into a Slack channel.
+The program looks for "trips" in your TripIt web calendar feed, which are separate from the hotel and plane reservations. It uses the dates and the location from those trips. You can edit those trip details inside TripIt.
 
-## Things the program needs 
+Then I set up cron to run it once a day. If a trip is in progress when it runs, the script posts those details into the slack channel.
+
+## Things it Needs
 
 ### Your TripIt iCal URL
 
@@ -20,15 +22,17 @@ Get it from Browse Apps > Custom Integrations > Incoming WebHooks > Configuratio
 
 ![screen shot 1](https://github.com/ReallyGoodSmarts/travel-slack-bot/blob/master/images/ScreenShot17.png)
 
-### A couple of node.js modules
+I store the TripIt and Slack URLs outside my Git tree so I don't accidentally make them public. They're in a file called `travel_bot_keys.js` which is loaded with "require" near the top of `index.js`. There's an example file [here](/examples/travel_bot_keys.js).
 
-This uses `ical` `request` and `moment` npm libraries.
+### Three node.js modules
+
+This program uses `ical` `request` and `moment` npm libraries. Install them using [npm](https://www.npmjs.com/).
 
 ```
 npm install ical request moment 
 ```
 
-## Usage
+## Make it Go
 
 I set this up to be run by a cron job once a day. So I edited my server's crontab with:
 
