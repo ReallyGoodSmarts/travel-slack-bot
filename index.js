@@ -12,13 +12,22 @@ ical.fromURL(travelBotKeys.ICAL_URL, {}, function(err, data){
       // which TripIt does for trip entries
       if (listing.description.match(/.+is in/) ){
         
-        // Is right now between the start and end times of the listing?
-        // Note that moment() == now
-        if ( moment().isBetween(listing.start, listing.end) ) {  
+        trip_start_day = moment(listing.start).day();
+        trip_end_day = moment(listing.end).day() - 1;  // -1 because end is at midnight next day
+        
+        // Message only at the start and end of the trip.
+        // Is right now either on the first day or the last 
+        // day of the start and end times of the listing?
+        // Note that moment().day() == today
+        if ( trip_start_day == moment().day() || trip_end_day == moment().day() ) {  
           
           // match up to the newline character, and take the first element
           phrase = listing.description.match(/(.+)\n/)[1];
           console.log(phrase);
+          
+          if (trip_end_day == moment().day() ) {
+            phrase = phrase + " (Trip ending today.)";
+          }
           
           // Compose the message and other details to send to Slack 
           var payload = {
@@ -29,7 +38,8 @@ ical.fromURL(travelBotKeys.ICAL_URL, {}, function(err, data){
           };
 
           // Set up the sending options for the request function.
-          // See note about the SLACK_WEBHOOK_URL above.
+          // See note about the travelBotKeys.SLACK_WEBHOOK_URL in
+          // in README.md.
           var options = {
           	url: travelBotKeys.SLACK_WEBHOOK_URL,
           	method: 'POST',
