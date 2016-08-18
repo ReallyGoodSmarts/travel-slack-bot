@@ -1,6 +1,6 @@
 # Linking TripIt & Slack
 
-This little program watches your TripIt account and posts a note into Slack whenever you are on the road.
+This little program watches your TripIt account and posts a note into Slack at the beginning and end of your trip.
 
 ![Example Post](https://github.com/ReallyGoodSmarts/travel-slack-bot/blob/master/images/ExamplePost.png)
 
