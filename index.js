@@ -19,13 +19,13 @@ ical.fromURL(travelBotKeys.ICAL_URL, {}, function(err, data){
         // Message only at the start and end of the trip.
         // Is right now either the same day as the first day or the last 
         // day of the trip?
-        if ( trip_start_day.isSame(rightnow, "day") || trip_end_day.isSame(rightnow, "day") ) {  
+        if ( trip_start.isSame(rightnow, "day") || trip_end.isSame(rightnow, "day") ) {  
           
           // match up to the newline character, and take the first element
           phrase = listing.description.match(/(.+)\n/)[1];
           console.log(phrase);
           
-          if (trip_end_day == moment().day() ) {
+          if (trip_end.isSame(rightnow, "day")) {
             phrase = phrase + " (Trip ending today.)";
           }
           
