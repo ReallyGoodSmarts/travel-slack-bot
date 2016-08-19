@@ -12,14 +12,14 @@ ical.fromURL(travelBotKeys.ICAL_URL, {}, function(err, data){
       // which TripIt does for trip entries
       if (listing.description.match(/.+is in/) ){
         
-        trip_start_day = moment(listing.start).day();
-        trip_end_day = moment(listing.end).day() - 1;  // -1 because end is at midnight next day
+        trip_start = moment(listing.start);
+        trip_end = moment(listing.end).subract(1, 'days');  // -1 because end is posted at midnight next day
+        rightnow = moment();
         
         // Message only at the start and end of the trip.
-        // Is right now either on the first day or the last 
-        // day of the start and end times of the listing?
-        // Note that moment().day() == today
-        if ( trip_start_day == moment().day() || trip_end_day == moment().day() ) {  
+        // Is right now either the same day as the first day or the last 
+        // day of the trip?
+        if ( trip_start_day.isSame(rightnow, "day") || trip_end_day.isSame(rightnow, "day") ) {  
           
           // match up to the newline character, and take the first element
           phrase = listing.description.match(/(.+)\n/)[1];
