@@ -13,7 +13,7 @@ ical.fromURL(travelBotKeys.ICAL_URL, {}, function(err, data){
       if (listing.description.match(/.+is in/) ){
         
         trip_start = moment(listing.start);
-        trip_end = moment(listing.end).subract(1, 'days');  // -1 because end is posted at midnight next day
+        trip_end = moment(listing.end).subtract(1, 'days');  // -1 because end is posted at midnight next day
         rightnow = moment();
         
         // Message only at the start and end of the trip.
